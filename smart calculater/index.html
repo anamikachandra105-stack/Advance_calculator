@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>🧮 Smart Calculator</h1>
+
+    <p>
+        Perform calculations, calculate age, BMI,
+        height and weight conversions—all in one place.
+    </p>
+
+    <button id="darkModeBtn">
+        <i class="fa-solid fa-moon"></i>
+        Dark Mode
+    </button>
+
+</header>
+
+<!-- Navigation -->
+
+<nav>
+
+    <button onclick="showSection('calculator')">
+        Calculator
+    </button>
+
+    <button onclick="showSection('age')">
+        Age
+    </button>
+
+    <button onclick="showSection('bmi')">
+        BMI
+    </button>
+
+    <button onclick="showSection('height')">
+        Height
+    </button>
+
+    <button onclick="showSection('weight')">
+        Weight
+    </button>
+
+</nav>
+
+<!-- ========================= -->
+<!-- Calculator -->
+<!-- ========================= -->
+
+<section id="calculator" class="active">
+
+<div class="calculator">
+
+<input
+type="text"
+id="display"
+readonly>
+
+<div class="buttons">
+
+<button onclick="clearDisplay()">AC</button>
+
+<button onclick="deleteLast()">⌫</button>
+
+<button onclick="appendValue('%')">%</button>
+
+<button onclick="appendValue('/')">÷</button>
+
+<button onclick="appendValue('7')">7</button>
+
+<button onclick="appendValue('8')">8</button>
+
+<button onclick="appendValue('9')">9</button>
+
+<button onclick="appendValue('*')">×</button>
+
+<button onclick="appendValue('4')">4</button>
+
+<button onclick="appendValue('5')">5</button>
+
+<button onclick="appendValue('6')">6</button>
+
+<button onclick="appendValue('-')">−</button>
+
+<button onclick="appendValue('1')">1</button>
+
+<button onclick="appendValue('2')">2</button>
+
+<button onclick="appendValue('3')">3</button>
+
+<button onclick="appendValue('+')">+</button>
+
+<button onclick="appendValue('0')">0</button>
+
+<button onclick="appendValue('.')">.</button>
+
+<button onclick="square()">x²</button>
+
+<button onclick="squareRoot()">√</button>
+
+<button class="equal" onclick="calculate()">
+=
+</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- Age Calculator -->
+<!-- ========================= -->
+
+<section id="age" class="hidden">
+
+    <div class="card">
+
+        <h2>🎂 Age Calculator</h2>
+
+        <label>Date of Birth</label>
+
+        <input type="date" id="dob">
+
+        <button onclick="calculateAge()">
+            Calculate Age
+        </button>
+
+        <h3 id="ageResult"></h3>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- BMI Calculator -->
+<!-- ========================= -->
+
+<section id="bmi" class="hidden">
+
+    <div class="card">
+
+        <h2>⚖️ BMI Calculator</h2>
+
+        <input
+            type="number"
+            id="bmiWeight"
+            placeholder="Weight (kg)">
+
+        <input
+            type="number"
+            id="bmiHeight"
+            placeholder="Height (cm)">
+
+        <button onclick="calculateBMI()">
+            Calculate BMI
+        </button>
+
+        <h3 id="bmiResult"></h3>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Height Converter -->
+<!-- ========================= -->
+
+<section id="height" class="hidden">
+
+    <div class="card">
+
+        <h2>📏 Height Converter</h2>
+
+        <input
+            type="number"
+            id="heightValue"
+            placeholder="Enter Height">
+
+        <select id="heightUnit">
+
+            <option value="cm">Centimeter</option>
+
+            <option value="m">Meter</option>
+
+            <option value="feet">Feet</option>
+
+            <option value="inch">Inch</option>
+
+            <option value="km">Kilometer</option>
+
+            </select>
+
+            <button onclick="convertHeight()">
+            Convert
+            </button>
+
+            <h3 id="heightResult"></h3>
+ 
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Weight Converter -->
+<!-- ========================= -->
+
+<section id="weight" class="hidden">
+
+    <div class="card">
+
+        <h2>⚖️ Weight Converter</h2>
+
+        <input
+            type="number"
+            id="weightValue"
+            placeholder="Enter Weight">
+
+        <select id="weightUnit">
+
+            <option value="kg">Kilogram</option>
+
+            <option value="g">Gram</option>
+
+            <option value="lb">Pound</option>
+
+        </select>
+
+        <button onclick="convertWeight()">
+            Convert
+        </button>
+
+        <h3 id="weightResult"></h3>
+
+    </div>
+
+</section>
+<!-- ========================= -->
+<!-- History -->
+<!-- ========================= -->
+
+<section class="history">
+
+    <h2>📜 Calculation History</h2>
+
+    <ul id="historyList">
+        <li>No calculations yet.</li>
+    </ul>
+
+</section>
+
+<!-- ========================= -->
+<!-- Footer -->
+<!-- ========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Smart Calculator | Made with ❤️ using HTML, CSS & JavaScript
+    </p>
+
+</footer>
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
